@@ -97,3 +97,174 @@ var namesWithoutOla = names.filter(function(name) {
     return name != 'Ola';
 });
 console.log(namesWithoutOla);
+
+
+//
+// STRINGS METHODS AND PROPERTIES
+//
+
+// declare new string
+var str = 'test';
+var newStr = (new String('test'));
+//
+var result1 = str.toUpperCase();
+var result2 = newStr.toUpperCase();
+//
+console.log(result1);
+console.log(result2);
+// javascript treats strings as objects:
+// {
+//   0:"t",
+//   1:"e",
+//   2:"s",
+//   3:"t",
+//   length:4
+//   }
+// }
+console.log(newStr[3]);
+
+// length
+// returns string's length
+var txt = 'Lorem ipsum dolor sit amet';
+console.log(txt.length);  // 26
+
+// charAt()
+// returns character at a given index
+var txt ='Example';
+//
+console.log(txt.charAt(4));  // p
+
+// indexOf()
+// returns index of a given character
+var txt = 'Lorem ipsum dolor sit amet';
+var indexDolor = txt.indexOf('dolor');  // 12
+//
+if (indexDolor == -1) {
+    console.log('Dolor does not appear in the txt');
+} else {
+    console.log(txt[indexDolor]);  // txt[12] == d
+}
+
+// slice()
+// returns part of string from index (incl.) to index (excl.)
+var motto = 'Good friends are loyal people';
+var partOfMotto = motto.slice(5,11);
+//
+console.log(partOfMotto);  // friend
+// or
+// backwards with negative numbers
+var motto = 'Good friends are loyal people';
+partOfMotto = motto.slice(-12,-7);
+//
+console.log(partOfMotto);
+
+// substr()
+// returns part of string beginning from index through number of characters;
+// negative numbers to count from right side
+var motto = 'The rest is silence';
+var mottoCharsAfter = motto.substr(12, 7);
+//
+console.log(mottoCharsAfter);
+
+// replace()
+// replace one string with another
+var motto = 'Never give up on what you really want to do';
+var mottoCharsAfter = motto.replace('do', 'have');
+//
+console.log(mottoCharsAfter);
+
+// toUpperCase()
+// converts all characters to upper case
+var name = 'John Doe';
+var nameUpperCased = name.toUpperCase();
+//
+console.log(nameUpperCased);
+
+// toLowerCase()
+// converts all characters to lower case
+// both methods are useful for searching words in text
+var text = 'BeTTer lATe THAN neveR';
+//
+if ( text.toLowerCase().indexOf('late') != -1  ) {
+    console.log('Sentence contains word - late');
+}
+
+// split()
+// converts string to array on given separator
+var keywords = 'red, green, blue, yellow, pink, orange, white';
+//
+var keywordsArray = keywords.split(', ');
+//
+keywordsArray.map(function(element) {
+    console.log('#tag-' + element);
+});
+
+
+//
+// LOOPS
+//
+
+// 'for' loop
+// for ( initial_value ; condition ; value_modification ) {
+//     // code included in the loop block
+// }
+for ( var k = 0 ; k < 10 ; k++ ) {
+    console.log('The value of k is now: ' + k);
+}
+
+// 'while' loop
+// while (condition) {
+//     ...
+// }
+var i = 0;
+//
+while (i < 10) {
+    console.log(i);
+    i++;
+}
+
+// 'do while' loop
+// do {
+//     //loop code
+// } while (condition)
+var i = 0;
+//
+do {
+    console.log(i);
+    i++;
+} while (i < 10);
+
+// 'for in' loop
+// for (loop_variable in indicated_object) {
+//     // code in the loop block
+// }
+// example object:
+var person = {
+    name: 'Piotr',
+    age: 25,
+    country: 'Poland'
+};
+// example loop
+for (var attrName in person) {
+    console.log(attrName);
+}
+
+// 'break' statement
+// breaks instruction execution and leaves loop or switch
+for ( var k = 0 ; k < 10 ; k++ ) {
+    console.log('The value of k is now: ' + k);
+    if (k == 5) {
+        console.log('k is equal to 5. The end');
+        break;
+    }
+}
+
+// 'continue' statement
+// continues loop execution without executing instruction after statement
+for ( var k = 0 ; k < 10 ; k++ ) {
+    console.log('The value of k is now: ' + k);
+    if (k > 5) {
+        continue;
+    }
+    console.log('Instruction at the end of the loop ');
+}
